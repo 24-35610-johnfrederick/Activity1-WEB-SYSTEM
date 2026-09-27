@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeGuard - Project Proposal Landing Page</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Session Guard: Protected Access -->
+    <script>
+        if (sessionStorage.getItem("isLoggedIn") !== "true") {
+            alert("Kailangang mag-login muna para ma-access ang pahinang ito.");
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; color: #334155; }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            background-color: #0284c7;
+            color: white;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-custom:hover { background-color: #0369a1; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="sticky-top bg-white border-bottom shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light container py-3">
+            <a class="navbar-brand fw-bold text-primary fs-4 d-flex align-items-center" href="#">
+                <i class="fa-solid fa-shield-halved text-info me-2 fs-3"></i>
+                <span class="text-dark">Life</span><span class="text-info">Guard</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2 align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item">
+                        <button id="logoutBtn" class="btn btn-outline-danger rounded-pill px-3 ms-2">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section py-5">
+            <div class="container">
+                <div class="row align-items-center flex-column-reverse flex-lg-row">
+                    <div class="col-lg-6 mt-4 mt-lg-0 text-center text-lg-start">
+                        <!-- Dynamic Welcome Username Display -->
+                        <h1 class="display-4 fw-bold mb-3" id="userWelcome">Welcome!</h1>
+                        <p class="lead text-light opacity-75 mb-4">
+                            Welcome to <strong>LifeGuard: Smart Classroom Lighting Monitoring and Time Management System</strong> project proposal portal.
+                        </p>
+                        <a href="#overview" class="btn btn-custom">Explore Proposal</a>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div class="p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-20 shadow-lg">
+                            <i class="fa-solid fa-microchip text-info display-1 my-4"></i>
+                            <h3 class="fw-bold">Smart Classroom System</h3>
+                            <p class="text-light opacity-75">Automated IoT Lighting & Schedule Control</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section id="overview" class="container my-5 py-4">
+            <div class="text-center mb-5">
+                <h6 class="text-info fw-bold text-uppercase">Project Overview</h6>
+                <h2 class="fw-bold display-6">Key System Modules</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card p-4 h-100">
+                        <div class="icon-box bg-warning bg-opacity-20 text-warning">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Smart Lighting</h4>
+                        <p class="text-muted">Monitors ambient illumination and adjusts classroom lights automatically to protect eyes and save energy.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card p-4 h-100">
+                        <div class="icon-box bg-info bg-opacity-20 text-info">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Time Management</h4>
+                        <p class="text-muted">Automates class period alerts and break times with real-time indicators to keep lectures on schedule.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card p-4 h-100">
+                        <div class="icon-box bg-success bg-opacity-20 text-success">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Data Analytics</h4>
+                        <p class="text-muted">Tracks power consumption and room usage metrics to support school energy management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1">&copy; LifeGuard Project Proposal System.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Kunin ang kasalukuyang naka-login na username
+            const loggedInUser = sessionStorage.getItem("currentUser") || "User";
+            $("#userWelcome").text(`Welcome, ${loggedInUser}!`);
+
+            // Logout Handler
+            $("#logoutBtn").click(function() {
+                sessionStorage.clear();
+                window.location.href = "login.html";
+            });
+        });
+    </script>
+</body>
+</html>
